@@ -5,6 +5,7 @@ from discord.ext import commands
 from discord.utils import get
 from Dtime import Uptime
 import openpyxl
+import os
 
 
 app = commands.Bot(command_prefix='`')
@@ -37,7 +38,7 @@ async def on_ready():
     await app.change_presence(status=discord.Status.online, activity=game)
     while True:
 
-        game = discord.Game("코드를 사용하시려면 \"가입\"을 눌러주세요")
+        game = discord.Game("코드를 사용하시려면 \"`\"을 눌러주세요")
         await app.change_presence(status=discord.Status.online, activity=game)
         await asyncio.sleep(3)
 
@@ -51,7 +52,7 @@ async def on_ready():
         await app.change_presence(status=discord.Status.online, activity=game)
         await asyncio.sleep(3)
 
-        game = discord.Game("SEVENBOT ver.1.0.4ㅣ`도움말")
+        game = discord.Game("PIGGY BANK ver.1.0.4ㅣ`명령어")
         await app.change_presence(status=discord.Status.online, activity=game)
         await asyncio.sleep(3)
 
@@ -327,5 +328,5 @@ async def _kick_error(ctx, error):
 
 
 
-
-app.run("NzI4ODc4OTQ2NjYxMTcxMjY0.XwAzkA.BN4M0JO9JDY-qsHqtYI25tduLgc")
+access_token = os.environ["BOT_TOKEN"]
+app.run(access_token)
